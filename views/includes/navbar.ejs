@@ -62,9 +62,6 @@
 </nav> -->
 
 
-
-
-
 <style>
   .search-btn {
     background-color: #fe424d;
@@ -91,13 +88,9 @@
   @media (max-width: 768px) {
     .search-form {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 0.5rem;
-    }
-
-    .search-input,
-    .search-btn {
-      width: 100%;
+      align-items: center;
     }
 
     .auth-links a {
@@ -106,37 +99,32 @@
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3">
+  <div class="container-fluid d-flex align-items-center">
     <!-- Brand -->
-    <a class="navbar-brand" href="/listings">
+    <a class="navbar-brand d-flex align-items-center me-2" href="/listings">
       <i class="fa-regular fa-compass"></i>
     </a>
 
-    <!-- Toggle for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+    <!-- Explore -->
+    <a class="nav-link d-md-inline me-2" href="/listings">Explore</a>
+
+    <!-- Search form (always visible) -->
+    <form class="d-flex search-form me-auto" role="search" style="max-width: 400px; flex: 1;">
+      <input class="form-control search-input me-2" type="search" placeholder="Search destinations" aria-label="Search" />
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search
+      </button>
+    </form>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <!-- Left nav -->
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-
-      <!-- Desktop Search Bar -->
-      <div class="ms-md-auto my-2 my-md-0 d-none d-md-block" style="max-width: 500px; width: 100%;">
-        <form class="d-flex search-form" role="search">
-          <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" aria-label="Search" />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
-
-      <!-- Auth buttons (desktop only) -->
-      <div class="navbar-nav ms-md-3 d-none d-md-flex">
+    <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarContent">
+      <div class="navbar-nav ms-md-auto auth-links">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
         <% if (!currUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>
@@ -145,29 +133,6 @@
           <a class="nav-link" href="/logout"><b>Log out</b></a>
         <% } %>
       </div>
-
-      <!-- Mobile Search + Auth -->
-      <div class="d-block d-md-none w-100 mt-3">
-        <!-- Search bar (mobile) -->
-        <form class="search-form" role="search">
-          <input class="form-control search-input" type="search" placeholder="Search destinations" aria-label="Search" />
-          <button class="btn search-btn mt-2" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-
-        <!-- Auth buttons (mobile) -->
-        <div class="auth-links mt-3">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
-          <% if (!currUser) { %>
-            <a class="nav-link" href="/signup"><b>Sign up</b></a>
-            <a class="nav-link" href="/login"><b>Log in</b></a>
-          <% } else { %>
-            <a class="nav-link" href="/logout"><b>Log out</b></a>
-          <% } %>
-        </div>
-      </div>
     </div>
   </div>
 </nav>
-
