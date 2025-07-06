@@ -112,19 +112,24 @@
       background-color: #ffecec;
       color: #fe424d;
     }
+    @media (min-width: 768px) {
+  .nav-link {
+    margin-right: 1rem;
+  }
+}
+
   }
 </style>
-
 
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3">
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <!-- Logo + Explore -->
-    <div class="d-flex align-items-center gap-2">
-      <a class="navbar-brand" href="/listings">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand me-2" href="/listings">
         <i class="fa-regular fa-compass"></i>
       </a>
-      <a class="nav-link d-none d-md-block" href="/listings">Explore</a>
+      <a class="nav-link d-none d-md-block me-4" href="/listings">Explore</a>
     </div>
 
     <!-- Centered Search Bar (Desktop only) -->
