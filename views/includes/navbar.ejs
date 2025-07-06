@@ -61,13 +61,13 @@
   </div>
 </nav> -->
 
-
 <style>
   .search-btn {
     background-color: #fe424d;
     color: #fff;
     border-radius: 25px;
     padding: 0.5rem 1.5rem;
+    font-weight: 500;
     white-space: nowrap;
   }
 
@@ -94,35 +94,32 @@
       margin-top: 1rem;
     }
 
-    .auth-links {
-      text-align: center;
-    }
-
-    .auth-links a {
-      display: block;
-      padding: 0.5rem 0;
-      font-weight: bold;
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-
-    .auth-links a:hover {
-      background-color: #ffecec;
-      color: #fe424d;
-    }
-
     .navbar-collapse {
       background-color: #fff;
       padding: 1rem;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: bold;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      margin: 0.3rem 0;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #ffecec;
+      color: #fe424d;
     }
   }
 </style>
 
+
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3">
   <div class="container-fluid d-flex align-items-center justify-content-between">
-    <!-- Left section: Logo + Explore -->
+    <!-- Logo + Explore -->
     <div class="d-flex align-items-center gap-2">
       <a class="navbar-brand" href="/listings">
         <i class="fa-regular fa-compass"></i>
@@ -130,7 +127,7 @@
       <a class="nav-link d-none d-md-block" href="/listings">Explore</a>
     </div>
 
-    <!-- Center section: Search Bar -->
+    <!-- Centered Search Bar (Desktop only) -->
     <form class="d-none d-md-flex search-form mx-auto" style="max-width: 500px; width: 100%;" role="search">
       <input class="form-control search-input me-2" type="search" placeholder="Search destinations" aria-label="Search" />
       <button class="btn search-btn" type="submit">
@@ -138,48 +135,48 @@
       </button>
     </form>
 
-    <!-- Right section: Toggle & desktop auth links -->
+    <!-- Toggler and Auth Links -->
     <div class="d-flex align-items-center">
-      <!-- Toggler for mobile -->
       <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- Desktop Auth Links -->
-      <div class="navbar-nav ms-3 d-none d-md-flex">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if (!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } else { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
-      </div>
     </div>
 
-    <!-- Mobile Collapsible Menu -->
-    <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarContent">
-      <!-- Mobile: Explore (again for redundancy in case user expects) -->
-      <a class="nav-link d-md-none text-center mb-2" href="/listings">Explore</a>
+    <!-- Collapsible Content -->
+    <div class="collapse navbar-collapse justify-content-end mt-3 mt-md-0" id="navbarContent">
+      <ul class="navbar-nav ms-auto text-center text-md-start">
+        <!-- Mobile: Explore -->
+        <li class="nav-item d-md-none">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
 
-      <!-- Mobile: Search bar -->
-      <form class="search-form d-md-none w-100" role="search">
-        <input class="form-control search-input" type="search" placeholder="Search destinations" aria-label="Search" />
-        <button class="btn search-btn mt-2" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>Search
-        </button>
-      </form>
+        <!-- Mobile Search -->
+        <li class="nav-item d-md-none px-3">
+          <form class="search-form w-100" role="search">
+            <input class="form-control search-input mb-2" type="search" placeholder="Search destinations" />
+            <button class="btn search-btn w-100" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>Search
+            </button>
+          </form>
+        </li>
 
-      <!-- Mobile: Auth Links -->
-      <div class="auth-links mt-3">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <!-- Auth Buttons -->
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        </li>
         <% if (!currUser) { %>
-          <a class="nav-link" href="/signup">Sign up</a>
-          <a class="nav-link" href="/login">Log in</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><b>Log in</b></a>
+          </li>
         <% } else { %>
-          <a class="nav-link" href="/logout">Log out</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
+          </li>
         <% } %>
-      </div>
+      </ul>
     </div>
   </div>
 </nav>
