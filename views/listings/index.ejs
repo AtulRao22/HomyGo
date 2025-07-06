@@ -44,7 +44,7 @@
     padding: 1rem;
     display: flex;
     align-items: center;
-    margin-top: 1.15rem;
+    margin-left: auto;
   }
   
   /* Mobile Responsive Styles */
@@ -108,58 +108,124 @@
 </style>
 
  <div id="filters">
-  <div class="filter">
-   <div><i class="fa-solid fa-fire"></i></div> 
-    <p>Trending</p>
-  </div>
-  <div class="filter">
-   <div><i class="fa-solid fa-bed"></i></div> 
-    <p>Rooms</p>
-  </div>
-   <div class="filter">
-   <div><i class="fa-solid fa-city"></i></div> 
-    <p>Iconic Cities</p>
-  </div>
-   <div class="filter">
-   <div><i class="fa-solid fa-mountain-sun"></i></div> 
-    <p>Mountains</p>
-  </div>
-   <div class="filter">
-   <div><i class="fa-brands fa-fort-awesome"></i></div> 
-    <p>Castles</p>
-  </div>
-   <div class="filter">
-   <div><i class="fa-solid fa-person-swimming"></i></div> 
-    <p>Amazing Pools</p>
-  </div>
-   <div class="filter">
-   <div><i class="fa-solid fa-campground"></i></div> 
-    <p>Camping</p>
-  </div>
+  <!-- Desktop Filters -->
+  <div class="d-none d-md-flex flex-wrap" style="gap: 1rem;">
     <div class="filter">
-   <div><i class="fa-solid fa-cow"></i></div> 
-    <p>Farms</p>
-  </div>
+     <div><i class="fa-solid fa-fire"></i></div> 
+      <p>Trending</p>
+    </div>
     <div class="filter">
-   <div><i class="fa-solid fa-snowman"></i></div> 
-    <p>Arctic</p>
+     <div><i class="fa-solid fa-bed"></i></div> 
+      <p>Rooms</p>
+    </div>
+     <div class="filter">
+     <div><i class="fa-solid fa-city"></i></div> 
+      <p>Iconic Cities</p>
+    </div>
+     <div class="filter">
+     <div><i class="fa-solid fa-mountain-sun"></i></div> 
+      <p>Mountains</p>
+    </div>
+     <div class="filter">
+     <div><i class="fa-brands fa-fort-awesome"></i></div> 
+      <p>Castles</p>
+    </div>
+     <div class="filter">
+     <div><i class="fa-solid fa-person-swimming"></i></div> 
+      <p>Amazing Pools</p>
+    </div>
+     <div class="filter">
+     <div><i class="fa-solid fa-campground"></i></div> 
+      <p>Camping</p>
+    </div>
+      <div class="filter">
+     <div><i class="fa-solid fa-cow"></i></div> 
+      <p>Farms</p>
+    </div>
+      <div class="filter">
+     <div><i class="fa-solid fa-snowman"></i></div> 
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+     <div><i class="fa-solid fa-igloo"></i></div> 
+      <p>Domes</p>
+    </div>
+    <div class="filter">
+     <div><i class="fa-solid fa-sailboat"></i></div> 
+      <p>Boats</p>
+    </div>
+    <div class="filter">
+     <div><i class="fa-solid fa-camera"></i></div> 
+      <p>Photography</p>
+    </div>
+     <div class="filter">
+    <div><i class="fa-solid fa-bell-concierge"></i></div> 
+      <p>Services</p>
+    </div> 
   </div>
-  <div class="filter">
-   <div><i class="fa-solid fa-igloo"></i></div> 
-    <p>Domes</p>
+
+  <!-- Mobile Filters Dropdown -->
+  <div class="d-md-none filters-container">
+    <button class="filter-dropdown-btn" onclick="toggleFilters()">
+      <span>Filters</span>
+      <i class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
+    </button>
+    <div class="filters-dropdown" id="filtersDropdown">
+      <div class="filter">
+       <div><i class="fa-solid fa-fire"></i></div> 
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+       <div><i class="fa-solid fa-bed"></i></div> 
+        <p>Rooms</p>
+      </div>
+       <div class="filter">
+       <div><i class="fa-solid fa-city"></i></div> 
+        <p>Iconic Cities</p>
+      </div>
+       <div class="filter">
+       <div><i class="fa-solid fa-mountain-sun"></i></div> 
+        <p>Mountains</p>
+      </div>
+       <div class="filter">
+       <div><i class="fa-brands fa-fort-awesome"></i></div> 
+        <p>Castles</p>
+      </div>
+       <div class="filter">
+       <div><i class="fa-solid fa-person-swimming"></i></div> 
+        <p>Amazing Pools</p>
+      </div>
+       <div class="filter">
+       <div><i class="fa-solid fa-campground"></i></div> 
+        <p>Camping</p>
+      </div>
+        <div class="filter">
+       <div><i class="fa-solid fa-cow"></i></div> 
+        <p>Farms</p>
+      </div>
+        <div class="filter">
+       <div><i class="fa-solid fa-snowman"></i></div> 
+        <p>Arctic</p>
+      </div>
+      <div class="filter">
+       <div><i class="fa-solid fa-igloo"></i></div> 
+        <p>Domes</p>
+      </div>
+      <div class="filter">
+       <div><i class="fa-solid fa-sailboat"></i></div> 
+        <p>Boats</p>
+      </div>
+      <div class="filter">
+       <div><i class="fa-solid fa-camera"></i></div> 
+        <p>Photography</p>
+      </div>
+       <div class="filter">
+      <div><i class="fa-solid fa-bell-concierge"></i></div> 
+        <p>Services</p>
+      </div> 
+    </div>
   </div>
-  <div class="filter">
-   <div><i class="fa-solid fa-sailboat"></i></div> 
-    <p>Boats</p>
-  </div>
-  <div class="filter">
-   <div><i class="fa-solid fa-camera"></i></div> 
-    <p>Photography</p>
-  </div>
-   <div class="filter">
-  <div><i class="fa-solid fa-bell-concierge"></i></div> 
-    <p>Services</p>
-  </div> 
+
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
   <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
@@ -201,4 +267,20 @@
     }
    }
   });
+
+  // Mobile filters dropdown toggle
+  function toggleFilters() {
+    const dropdown = document.getElementById("filtersDropdown");
+    const icon = document.getElementById("dropdownIcon");
+    
+    if (dropdown.classList.contains("show")) {
+      dropdown.classList.remove("show");
+      icon.classList.remove("fa-chevron-up");
+      icon.classList.add("fa-chevron-down");
+    } else {
+      dropdown.classList.add("show");
+      icon.classList.remove("fa-chevron-down");
+      icon.classList.add("fa-chevron-up");
+    }
+  }
 </script>
