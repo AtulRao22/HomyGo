@@ -129,19 +129,20 @@
       <a class="navbar-brand me-2" href="/listings">
         <i class="fa-regular fa-compass"></i>
       </a>
-      <a class="nav-link d-none d-md-block me-4" href="/listings">Explore</a>
+      <a class="nav-link d-none d-md-block me-3" href="/listings">Explore</a>
     </div>
 
-    <!-- Centered Search Bar (Desktop only) -->
-    <form class="d-none d-md-flex search-form mx-auto" style="max-width: 500px; width: 100%; flex: 0 1 auto;" role="search">
+    <!-- Search Bar (Desktop only) - Between Explore and Airbnb your home -->
+    <form class="d-none d-md-flex search-form me-3" style="max-width: 300px; width: 100%;" role="search">
       <input class="form-control search-input me-2" type="search" placeholder="Search destinations" aria-label="Search" />
       <button class="btn search-btn" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>Search
       </button>
     </form>
 
-    <!-- Toggler and Auth Links -->
+    <!-- Auth Links -->
     <div class="d-flex align-items-center">
+      <a class="nav-link d-none d-md-block me-3" href="/listings/new">Airbnb your home</a>
       <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -166,7 +167,7 @@
         </li>
 
         <!-- Auth Buttons -->
-        <li class="nav-item">
+        <li class="nav-item d-md-none">
           <a class="nav-link" href="/listings/new">Airbnb your home</a>
         </li>
         <% if (!currUser) { %>
