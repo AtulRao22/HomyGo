@@ -12,7 +12,7 @@
     text-align: center;
     opacity: 0.8;
     min-width: 80px;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     border-radius: 8px;
     transition: all 0.3s ease;
   }
@@ -24,12 +24,12 @@
   }
   
   .filter p {
-    font-size: 0.8rem;
-    margin: 0.25rem 0 0 0;
+    font-size: 0.7rem;
+    /* margin: 0.25rem 0 0 0; */
   }
   
   .filter i {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
   }
   
@@ -56,26 +56,21 @@
     }
     
     .filter {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: left;
-      min-width: auto;
-      padding: 0.75rem 1rem;
+      text-align: center;
+      min-width: 60px;
+      padding: 0.5rem;
       margin: 0;
       background-color: #f8f9fa;
-      border-radius: 12px;
+      border-radius: 8px;
     }
     
     .filter i {
-      font-size: 1.1rem;
-      margin-right: 0.75rem;
-      margin-bottom: 0;
-      min-width: 20px;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
     }
     
     .filter p {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       margin: 0;
       font-weight: 500;
     }
@@ -164,66 +159,24 @@
     </div> 
   </div>
 
-  <!-- Mobile Filters Dropdown -->
-  <div class="d-md-none filters-container">
-    <button class="filter-dropdown-btn" onclick="toggleFilters()">
-      <span>Filters</span>
-      <i class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
-    </button>
-    <div class="filters-dropdown" id="filtersDropdown">
-      <div class="filter">
-       <div><i class="fa-solid fa-fire"></i></div> 
-        <p>Trending</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-bed"></i></div> 
-        <p>Rooms</p>
-      </div>
-       <div class="filter">
-       <div><i class="fa-solid fa-city"></i></div> 
-        <p>Iconic Cities</p>
-      </div>
-       <div class="filter">
-       <div><i class="fa-solid fa-mountain-sun"></i></div> 
-        <p>Mountains</p>
-      </div>
-       <div class="filter">
-       <div><i class="fa-brands fa-fort-awesome"></i></div> 
-        <p>Castles</p>
-      </div>
-       <div class="filter">
-       <div><i class="fa-solid fa-person-swimming"></i></div> 
-        <p>Amazing Pools</p>
-      </div>
-       <div class="filter">
-       <div><i class="fa-solid fa-campground"></i></div> 
-        <p>Camping</p>
-      </div>
-        <div class="filter">
-       <div><i class="fa-solid fa-cow"></i></div> 
-        <p>Farms</p>
-      </div>
-        <div class="filter">
-       <div><i class="fa-solid fa-snowman"></i></div> 
-        <p>Arctic</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-igloo"></i></div> 
-        <p>Domes</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-sailboat"></i></div> 
-        <p>Boats</p>
-      </div>
-      <div class="filter">
-       <div><i class="fa-solid fa-camera"></i></div> 
-        <p>Photography</p>
-      </div>
-       <div class="filter">
-      <div><i class="fa-solid fa-bell-concierge"></i></div> 
-        <p>Services</p>
-      </div> 
+  <!-- Mobile Filters Horizontal -->
+  <div class="d-md-none d-flex flex-wrap" style="gap: 0.5rem;">
+    <div class="filter">
+     <div><i class="fa-solid fa-fire"></i></div> 
+      <p>Trending</p>
     </div>
+    <div class="filter">
+     <div><i class="fa-solid fa-star"></i></div> 
+      <p>Activities</p>
+    </div>
+    <div class="filter">
+     <div><i class="fa-solid fa-eye"></i></div> 
+      <p>Iconic View</p>
+    </div>
+    <div class="filter">
+    <div><i class="fa-solid fa-bell-concierge"></i></div> 
+      <p>Services</p>
+    </div> 
   </div>
 
   <div class="tax-toggle">
@@ -268,19 +221,5 @@
    }
   });
 
-  // Mobile filters dropdown toggle
-  function toggleFilters() {
-    const dropdown = document.getElementById("filtersDropdown");
-    const icon = document.getElementById("dropdownIcon");
-    
-    if (dropdown.classList.contains("show")) {
-      dropdown.classList.remove("show");
-      icon.classList.remove("fa-chevron-up");
-      icon.classList.add("fa-chevron-down");
-    } else {
-      dropdown.classList.add("show");
-      icon.classList.remove("fa-chevron-down");
-      icon.classList.add("fa-chevron-up");
-    }
-  }
+
 </script>
