@@ -154,7 +154,7 @@
   <!-- Review Form -->
   <% if(currUser) { %>
   <div class="row">
-    <div class="col-12 col-md-8 offset-md-2">
+    <div class="col-12 col-md-6 offset-md-3">
       <hr />
       <h4>Write a Review</h4>
       <form method="POST" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
@@ -192,7 +192,7 @@
   <!-- All Reviews -->
   <% if(listing.reviews.length > 0) { %>
   <div class="row mb-4">
-    <div class="col-md-8 offset-md-3">
+    <div class="col-12 col-md-6 offset-md-3">
       <p><b>All Reviews</b></p>
       <% for(let review of listing.reviews) { %>
       <div class="card mb-3">
@@ -212,7 +212,7 @@
 
   <!-- Map -->
   <div class="row mb-4">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-12 col-md-10 offset-md-3">
       <h3>Where you'll be</h3>
     </div>
   </div>
