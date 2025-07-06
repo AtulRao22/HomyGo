@@ -111,126 +111,112 @@
 
 <script src="/js/map.js"></script> -->
 
-<style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0.5rem 1.5rem;
-    white-space: nowrap;
-  }
 
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
-
-  .search-btn i {
-    margin-right: 0.4rem;
-    vertical-align: middle;
-  }
-
-  .search-input {
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .search-form {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .auth-links {
-      text-align: center;
-    }
-
-    .auth-links a {
-      display: block;
-      padding: 0.5rem 0;
-      font-weight: bold;
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-
-    .auth-links a:hover {
-      background-color: #ffecec;
-      color: #fe424d;
-    }
-
-    .navbar-collapse {
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-  }
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3">
-  <div class="container-fluid d-flex align-items-center justify-content-between">
-    <!-- Left section: Logo + Explore -->
-    <div class="d-flex align-items-center gap-2">
-      <a class="navbar-brand" href="/listings">
-        <i class="fa-regular fa-compass"></i>
-      </a>
-      <a class="nav-link d-none d-md-block" href="/listings">Explore</a>
+ <div class="container mt-3">
+  <!-- Listing Title -->
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-3">
+      <h3><%= listing.title %></h3>
     </div>
+  </div>
 
-    <!-- Center section: Search Bar -->
-    <form class="d-none d-md-flex search-form mx-auto" style="max-width: 500px; width: 100%;" role="search">
-      <input class="form-control search-input me-2" type="search" placeholder="Search destinations" aria-label="Search" />
-      <button class="btn search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>Search
-      </button>
-    </form>
-
-    <!-- Right section: Toggle & desktop auth links -->
-    <div class="d-flex align-items-center">
-      <!-- Toggler for mobile -->
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Desktop Auth Links -->
-      <div class="navbar-nav ms-3 d-none d-md-flex">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if (!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } else { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
-      </div>
-    </div>
-
-    <!-- Mobile Collapsible Menu -->
-    <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarContent">
-      <!-- Mobile: Explore (again for redundancy in case user expects) -->
-      <a class="nav-link d-md-none text-center mb-2" href="/listings">Explore</a>
-
-      <!-- Mobile: Search bar -->
-      <form class="search-form d-md-none w-100" role="search">
-        <input class="form-control search-input" type="search" placeholder="Search destinations" aria-label="Search" />
-        <button class="btn search-btn mt-2" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>Search
-        </button>
-      </form>
-
-      <!-- Mobile: Auth Links -->
-      <div class="auth-links mt-3">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if (!currUser) { %>
-          <a class="nav-link" href="/signup">Sign up</a>
-          <a class="nav-link" href="/login">Log in</a>
-        <% } else { %>
-          <a class="nav-link" href="/logout">Log out</a>
-        <% } %>
+  <!-- Listing Card -->
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card show-card listing-card">
+        <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image" />
+        <div class="card-body">
+          <p class="card-text"><i>Owned by @ <%= listing.owner.username %></i></p>
+          <p class="card-text"><%= listing.description %></p>
+          <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN") %></p>
+          <p class="card-text"><%= listing.location %></p>
+          <p class="card-text"><%= listing.country %></p>
+        </div>
       </div>
     </div>
   </div>
-</nav>
+
+  <!-- Edit/Delete Buttons -->
+  <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+  <div class="row my-3 text-center">
+    <div class="col-6 col-md-3 offset-md-3">
+      <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn w-100">Edit</a>
+    </div>
+    <div class="col-6 col-md-3">
+      <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn btn-dark w-100">Delete</button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+
+  <!-- Review Form -->
+  <% if(currUser) { %>
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <hr />
+      <h4>Write a Review</h4>
+      <form method="POST" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <fieldset class="starability-slot">
+            <!-- starability radio buttons -->
+            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+        </div>
+
+        <div class="mb-3">
+          <label for="comment" class="form-label">Comments</label>
+          <textarea name="review[comment]" id="comment" cols="30" rows="4" class="form-control" required></textarea>
+          <div class="invalid-feedback">Please submit some comments for review</div>
+        </div>
+
+        <button class="btn btn-outline-dark">Submit</button>
+      </form>
+      <hr />
+    </div>
+  </div>
+  <% } %>
+
+  <!-- All Reviews -->
+  <% if(listing.reviews.length > 0) { %>
+  <div class="row mb-4">
+    <div class="col-12 col-md-6 offset-md-3">
+      <p><b>All Reviews</b></p>
+      <% for(let review of listing.reviews) { %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">@<%= review.author.username %></h5>
+          <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+          <p class="card-text"><%= review.comment %></p>
+          <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+            <button class="btn btn-sm btn-dark">Delete</button>
+          </form>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+
+  <!-- Map -->
+  <div class="row mb-4">
+    <div class="col-12 col-md-6 offset-md-3">
+      <h3>Where you'll be</h3>
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+
 <script src="/js/map.js"></script>
 
