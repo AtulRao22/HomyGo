@@ -6,6 +6,10 @@
       center: listing.geometry.coordinates,
       zoom: 10,
    });
+  
+  console.log("mapToken:", mapToken);
+console.log("listing:", listing);
+
 
 
    const marker = new mapboxgl.Marker({color: "red"})
