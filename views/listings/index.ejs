@@ -98,7 +98,8 @@
     }
     
     .filter {
-      min-width: 70px;
+      flex: 0 0 auto;
+      min-width: 80px;
       margin-right: 1rem;
     }
   }
@@ -206,7 +207,7 @@
   </div>
 
   <!-- Mobile Filters Horizontal -->
-  <div class="d-md-none d-flex justify-content-between" style="gap: 0.5rem;">
+  <div class="d-md-none d-flex justify-content-between" style="gap: 0.5rem; padding: 0 0.5rem;">
     <a href="/listings" class="filter <%= (!category) ? 'active-filter' : '' %> mobile-filter mobile-filter-left">All</a>
     <a href="/listings?category=Trending" class="filter <%= (category === 'Trending') ? 'active-filter' : '' %> mobile-filter"> 
      <div><i class="fa-solid fa-fire"></i></div> 
