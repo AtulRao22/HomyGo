@@ -115,22 +115,22 @@
     min-width: 0;
     margin: 0;
     text-align: center;
+    padding: 1rem 0.25rem;
+    font-size: 1.1rem;
   }
   .mobile-filter-left {
-    margin-left: 0.25rem;
-    text-align: left;
-    justify-content: flex-start;
-    align-items: flex-start;
+    margin-left: 0.5rem;
   }
   .mobile-filter-right {
-    margin-right: 0.25rem;
-    text-align: right;
-    justify-content: flex-end;
-    align-items: flex-end;
+    margin-right: 0.5rem;
   }
   @media (max-width: 768px) {
     .d-md-none.d-flex {
-      gap: 0.75rem;
+      gap: 1rem;
+    }
+    .mobile-filter {
+      font-size: 1.15rem;
+      padding: 1.1rem 0.25rem;
     }
   }
   .filter {
@@ -216,10 +216,6 @@
     <a href="/listings?category=Mountains" class="filter <%= (category === 'Mountains') ? 'active-filter' : '' %> mobile-filter"> 
      <div><i class="fa-solid fa-mountain-sun"></i></div> 
       <p>Mountains</p>
-    </a>
-    <a href="/listings?category=Photography" class="filter <%= (category === 'Photography') ? 'active-filter' : '' %> mobile-filter"> 
-     <div><i class="fa-solid fa-camera"></i></div> 
-      <p>Photography</p>
     </a>
     <a href="/listings?category=Services" class="filter <%= (category === 'Services') ? 'active-filter' : '' %> mobile-filter mobile-filter-right"> 
     <div><i class="fa-solid fa-bell-concierge"></i></div> 
