@@ -20,7 +20,7 @@ const listingSchema = new Schema({
         type: String,
         required: true,
         enum: [
-            'Trending', 'Rooms', 'Iconic Cities', 'Mountains', 'Castles', 'Amazing Pools', 'Camping', 'Farms', 'Arctic', 'Boats', 'Photography', 'Services', 'Activities', 'Iconic View'
+            'Trending', 'Rooms', 'Iconic Cities', 'Mountains', 'Castles', 'Amazing Pools', 'Camping', 'Farms', 'Arctic', 'Boats', 'Photography', 'Services', 'Activities'
         ]
     },
     reviews: [
