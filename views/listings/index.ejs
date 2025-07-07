@@ -102,83 +102,83 @@
       margin-right: 1rem;
     }
   }
+  
+  .active-filter {
+    background-color: #e0e0e0;
+    opacity: 1;
+    font-weight: bold;
+  }
 </style>
 
  <div id="filters">
   <!-- Desktop Filters -->
   <div class="d-none d-md-flex flex-wrap" style="gap: 0.5rem;">
-    <div class="filter">
+    <a href="/listings" class="filter <%= (!category) ? 'active-filter' : '' %>">All</a>
+    <a href="/listings?category=Trending" class="filter <%= (category === 'Trending') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-fire"></i></div> 
       <p>Trending</p>
-    </div>
-    <div class="filter">
+    </a>
+    <a href="/listings?category=Rooms" class="filter <%= (category === 'Rooms') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-bed"></i></div> 
       <p>Rooms</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Iconic Cities" class="filter <%= (category === 'Iconic Cities') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-city"></i></div> 
       <p>Iconic Cities</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Mountains" class="filter <%= (category === 'Mountains') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-mountain-sun"></i></div> 
       <p>Mountains</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Castles" class="filter <%= (category === 'Castles') ? 'active-filter' : '' %>">
      <div><i class="fa-brands fa-fort-awesome"></i></div> 
       <p>Castles</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Amazing Pools" class="filter <%= (category === 'Amazing Pools') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-person-swimming"></i></div> 
       <p>Amazing Pools</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Camping" class="filter <%= (category === 'Camping') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-campground"></i></div> 
       <p>Camping</p>
-    </div>
-      <div class="filter">
+    </a>
+    <a href="/listings?category=Farms" class="filter <%= (category === 'Farms') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-cow"></i></div> 
       <p>Farms</p>
-    </div>
-      <div class="filter">
+    </a>
+    <a href="/listings?category=Arctic" class="filter <%= (category === 'Arctic') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-snowman"></i></div> 
       <p>Arctic</p>
-    </div>
-    <div class="filter">
-     <div><i class="fa-solid fa-igloo"></i></div> 
-      <p>Domes</p>
-    </div>
-    <div class="filter">
+    </a>
+    <a href="/listings?category=Boats" class="filter <%= (category === 'Boats') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-sailboat"></i></div> 
       <p>Boats</p>
-    </div>
-    <div class="filter">
+    </a>
+    <a href="/listings?category=Photography" class="filter <%= (category === 'Photography') ? 'active-filter' : '' %>">
      <div><i class="fa-solid fa-camera"></i></div> 
       <p>Photography</p>
-    </div>
-     <div class="filter">
+    </a>
+    <a href="/listings?category=Services" class="filter <%= (category === 'Services') ? 'active-filter' : '' %>">
     <div><i class="fa-solid fa-bell-concierge"></i></div> 
       <p>Services</p>
-    </div> 
+    </a> 
   </div>
 
   <!-- Mobile Filters Horizontal -->
   <div class="d-md-none d-flex justify-content-between" style="gap: 0.5rem;">
-    <div class="filter" style="flex: 1;">
+    <a href="/listings" class="filter <%= (!category) ? 'active-filter' : '' %>" style="flex: 1;">All</a>
+    <a href="/listings?category=Trending" class="filter <%= (category === 'Trending') ? 'active-filter' : '' %>" style="flex: 1;">
      <div><i class="fa-solid fa-fire"></i></div> 
       <p>Trending</p>
-    </div>
-    <div class="filter" style="flex: 1;">
+    </a>
+    <a href="/listings?category=Activities" class="filter <%= (category === 'Activities') ? 'active-filter' : '' %>" style="flex: 1;">
      <div><i class="fa-solid fa-star"></i></div> 
       <p>Activities</p>
-    </div>
-    <div class="filter" style="flex: 1;">
-     <div><i class="fa-solid fa-eye"></i></div> 
-      <p>Iconic View</p>
-    </div>
-    <div class="filter" style="flex: 1;">
+    </a>
+    <a href="/listings?category=Services" class="filter <%= (category === 'Services') ? 'active-filter' : '' %>" style="flex: 1;">
     <div><i class="fa-solid fa-bell-concierge"></i></div> 
       <p>Services</p>
-    </div> 
+    </a> 
   </div>
 
   <div class="tax-toggle">
