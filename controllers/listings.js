@@ -37,17 +37,17 @@ module.exports.createListing = async(req, res, next) => {
 })
   .send()
 
-
-
     let url = req.file.path;
     let filename = req.file.filename;
-    //let {title, description, image, price, location, country} = req.body;
+    // Ensure category is present
+    if (!req.body.listing.category) {
+      req.flash("error", "Category is required.");
+      return res.redirect("/listings/new");
+    }
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = { url, filename };
-
     newListing.geometry = response.body.features[0].geometry;
-
     let savedListing = await newListing.save();
     console.log(savedListing);
     req.flash("success", "New Listing Created!");
@@ -68,8 +68,12 @@ module.exports.renderEditForm = async(req, res)=>{
 
 module.exports.updateListing = async(req, res)=>{
     let { id } = req.params;
+    // Ensure category is present
+    if (!req.body.listing.category) {
+      req.flash("error", "Category is required.");
+      return res.redirect(`/listings/${id}/edit`);
+    }
     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
-
     if(typeof req.file !== "undefined") {
       let url = req.file.path;
       let filename = req.file.filename;
