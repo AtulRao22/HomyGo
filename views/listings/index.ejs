@@ -115,6 +115,18 @@
     margin: 0;
     text-align: center;
   }
+  .mobile-filter-left {
+    margin-left: 0.25rem;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .mobile-filter-right {
+    margin-right: 0.25rem;
+    text-align: right;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
   @media (max-width: 768px) {
     .d-md-none.d-flex {
       gap: 0.75rem;
@@ -195,7 +207,7 @@
 
   <!-- Mobile Filters Horizontal -->
   <div class="d-md-none d-flex justify-content-between" style="gap: 0.5rem;">
-    <a href="/listings" class="filter <%= (!category) ? 'active-filter' : '' %> mobile-filter">All</a>
+    <a href="/listings" class="filter <%= (!category) ? 'active-filter' : '' %> mobile-filter mobile-filter-left">All</a>
     <a href="/listings?category=Trending" class="filter <%= (category === 'Trending') ? 'active-filter' : '' %> mobile-filter"> 
      <div><i class="fa-solid fa-fire"></i></div> 
       <p>Trending</p>
@@ -204,7 +216,7 @@
      <div><i class="fa-solid fa-mountain-sun"></i></div> 
       <p>Mountains</p>
     </a>
-    <a href="/listings?category=Services" class="filter <%= (category === 'Services') ? 'active-filter' : '' %> mobile-filter"> 
+    <a href="/listings?category=Services" class="filter <%= (category === 'Services') ? 'active-filter' : '' %> mobile-filter mobile-filter-right"> 
     <div><i class="fa-solid fa-bell-concierge"></i></div> 
       <p>Services</p>
     </a> 
