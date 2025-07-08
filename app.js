@@ -129,8 +129,14 @@ app.use((err, req, res, next)=>{
    // res.status(status).send(message);
 });
 
- app.listen(8080, ()=>{
-    console.log("server listening to port 8080");
+
+//  app.listen(8080, ()=>{
+//     console.log("server listening to port 8080");
+// });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
 
  
