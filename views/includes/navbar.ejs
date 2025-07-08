@@ -115,6 +115,12 @@
     @media (min-width: 768px) {
   .nav-link {
     margin-right: 1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-link:hover {
+    background-color: #fe424d;
+    color: #111 !important;
+    border-radius: 8px;
   }
 }
 
@@ -133,8 +139,8 @@
     </div>
 
     <!-- Centered Search Bar (Desktop only) -->
-    <form class="d-none d-md-flex search-form ms-4" style="max-width: 400px; width: 100%;" role="search">
-      <input class="form-control search-input me-2" type="search" placeholder="Search destinations" aria-label="Search" />
+    <form class="d-flex w-100 search-form ms-4" style="max-width: 400px; width: 100%;" role="search" method="GET" action="/listings">
+      <input class="form-control search-input me-2" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" />
       <button class="btn search-btn" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>Search
       </button>
