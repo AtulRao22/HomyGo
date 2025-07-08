@@ -47,7 +47,7 @@
     </form>
   </div>
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <a class="nav-link" href="/listings/new">HomyGo host</a>
         <% if(!currUser) { %>
         <a class="nav-link"  href="/signup"><b>Sign up</b></a>
         <a class="nav-link" href="/login"><b>Log in</b></a>
@@ -112,18 +112,18 @@
       background-color: #ffecec;
       color: #fe424d;
     }
-    @media (min-width: 768px) {
-  .nav-link {
-    margin-right: 1rem;
-    transition: background 0.2s, color 0.2s;
   }
-  .nav-link:hover {
-    background-color: #fe424d;
-    color: #111 !important;
-    border-radius: 8px;
-  }
-}
 
+  @media (min-width: 768px) {
+    .nav-link {
+      margin-right: 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover {
+      background-color: #fe424d;
+      color: #111 !important;
+      border-radius: 8px;
+    }
   }
 </style>
 
@@ -147,12 +147,7 @@
     </form>
 
     <!-- Mobile search bar (only visible in collapsed menu) -->
-    <form class="d-flex d-md-none search-form my-2" role="search" method="GET" action="/listings">
-      <input class="form-control search-input me-2" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" />
-      <button class="btn search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
+    <!-- The mobile search bar is only inside the collapse menu below -->
 
     <!-- Auth Links -->
     <div class="d-flex align-items-center">
@@ -181,10 +176,10 @@
 
         <!-- Auth Buttons -->
         <li class="nav-item d-md-none">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link" href="/listings/new">HomyGo host</a>
         </li>
         <li class="nav-item d-none d-md-block">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link" href="/listings/new">HomyGo host</a>
         </li>
         <% if (!currUser) { %>
           <li class="nav-item">
