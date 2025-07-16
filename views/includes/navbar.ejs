@@ -152,7 +152,12 @@
         <i class="fa-solid fa-home" style="color: #fe424d; font-size: 2rem;"></i>
       </a>
       <form class="d-flex flex-grow-1 mx-2" style="max-width: 100%;" role="search" method="GET" action="/listings">
-        <input class="form-control search-input" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" style="font-size:1rem;" />
+        <div class="input-group">
+          <input class="form-control search-input" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" style="font-size:1rem;" />
+          <button class="btn" type="submit" style="background:#fe424d; color:#fff; border-top-left-radius:0; border-bottom-left-radius:0;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </form>
       <button class="navbar-toggler ms-2 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" style="width:32px; height:32px;">
         <span class="navbar-toggler-icon" style="width:24px; height:24px;"></span>
@@ -205,14 +210,6 @@
             <a class="nav-link" href="/logout"><b>Log out</b></a>
           </li>
         <% } %>
-        <li class="nav-item d-md-none px-3">
-          <form class="search-form w-100" role="search" method="GET" action="/listings">
-            <input class="form-control search-input mb-2" type="search" name="search" placeholder="Search destinations" value="<%= typeof search !== 'undefined' ? search : '' %>" />
-            <button class="btn search-btn w-100" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>Search
-            </button>
-          </form>
-        </li>
       </ul>
     </div>
   </div>
