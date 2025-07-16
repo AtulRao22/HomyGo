@@ -138,7 +138,23 @@
       padding-left: 0.25rem;
     }
     .search-input {
-      font-size: 1rem;
+      font-size: 1.1rem;
+      height: 2.5rem;
+      border-radius: 25px 0 0 25px !important;
+      min-width: 0;
+      width: 100%;
+    }
+    .input-group .btn {
+      border-radius: 0 25px 25px 0 !important;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      padding: 0 1.1rem;
+      font-size: 1.2rem;
+    }
+    .input-group {
+      flex-wrap: nowrap;
+      width: 100%;
     }
   }
 </style>
@@ -148,7 +164,7 @@
   <div class="container-fluid d-flex align-items-center justify-content-between p-0">
     <!-- Mobile: Logo, Search, Collapse Button -->
     <div class="d-flex w-100 align-items-center d-md-none" style="min-height:56px;">
-      <a class="navbar-brand me-2 p-0" href="/listings" style="flex:0 0 auto;">
+      <a class="navbar-brand p-0" href="/listings" style="flex:0 0 auto; margin-right: 0.75rem;">
         <i class="fa-solid fa-home" style="color: #fe424d; font-size: 2rem;"></i>
       </a>
       <form class="d-flex flex-grow-1 mx-2" style="max-width: 100%;" role="search" method="GET" action="/listings">
@@ -159,7 +175,7 @@
           </button>
         </div>
       </form>
-      <button class="navbar-toggler ms-2 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" style="width:32px; height:32px;">
+      <button class="navbar-toggler p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" style="width:32px; height:32px; margin-left: 0.75rem;">
         <span class="navbar-toggler-icon" style="width:24px; height:24px;"></span>
       </button>
     </div>
