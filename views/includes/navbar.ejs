@@ -120,60 +120,77 @@
       border-radius: 8px;
     }
   }
+  .navbar-toggler {
+    border: none;
+    background: none;
+  }
+  @media (max-width: 768px) {
+    .navbar-toggler {
+      width: 32px;
+      height: 32px;
+      padding: 2px;
+    }
+    .navbar-toggler-icon {
+      width: 24px;
+      height: 24px;
+    }
+    .navbar-brand {
+      padding-left: 0.25rem;
+    }
+    .search-input {
+      font-size: 1rem;
+    }
+  }
 </style>
 
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3">
-  <div class="container-fluid d-flex align-items-center justify-content-between">
-    <!-- Logo + Explore -->
-    <div class="d-flex align-items-center">
-      <a class="navbar-brand me-2" href="/listings">
-        <i class="fa-solid fa-home" style="color: #fe424d;"></i>
+  <div class="container-fluid d-flex align-items-center justify-content-between p-0">
+    <!-- Mobile: Logo, Search, Collapse Button -->
+    <div class="d-flex w-100 align-items-center d-md-none" style="min-height:56px;">
+      <a class="navbar-brand me-2 p-0" href="/listings" style="flex:0 0 auto;">
+        <i class="fa-solid fa-home" style="color: #fe424d; font-size: 2rem;"></i>
       </a>
-      <a class="nav-link d-none d-md-block me-4" href="/listings">Explore</a>
-    </div>
-
-    <!-- Centered Search Bar (Desktop only) -->
-    <form class="d-none d-md-flex search-form ms-4" style="max-width: 400px; width: 100%;" role="search" method="GET" action="/listings">
-      <input class="form-control search-input me-2" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" />
-      <button class="btn search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>Search
-      </button>
-    </form>
-
-    <!-- Mobile search bar (only visible in collapsed menu) -->
-    <!-- The mobile search bar is only inside the collapse menu below -->
-
-    <!-- Auth Links -->
-    <div class="d-flex align-items-center">
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
+      <form class="d-flex flex-grow-1 mx-2" style="max-width: 100%;" role="search" method="GET" action="/listings">
+        <input class="form-control search-input" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" style="font-size:1rem;" />
+      </form>
+      <button class="navbar-toggler ms-2 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" style="width:32px; height:32px;">
+        <span class="navbar-toggler-icon" style="width:24px; height:24px;"></span>
       </button>
     </div>
-
-    <!-- Collapsible Content -->
+    <!-- Desktop: Logo + Explore + Search + Auth Links (unchanged) -->
+    <div class="d-none d-md-flex align-items-center w-100 justify-content-between">
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand me-2" href="/listings">
+          <i class="fa-solid fa-home" style="color: #fe424d;"></i>
+        </a>
+        <a class="nav-link d-none d-md-block me-4" href="/listings">Explore</a>
+      </div>
+      <form class="d-none d-md-flex search-form ms-4" style="max-width: 400px; width: 100%;" role="search" method="GET" action="/listings">
+        <input class="form-control search-input me-2" type="search" name="search" placeholder="Search destinations" aria-label="Search" value="<%= typeof search !== 'undefined' ? search : '' %>" />
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form>
+      <div class="d-flex align-items-center">
+        <!-- Auth Links (desktop) -->
+        <a class="nav-link" href="/listings/new">HomyGo host</a>
+        <% if(!currUser) { %>
+        <a class="nav-link"  href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+        <% if(currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
+    <!-- Collapsible Content (unchanged) -->
     <div class="collapse navbar-collapse justify-content-end mt-3 mt-md-0" id="navbarContent">
       <ul class="navbar-nav ms-auto text-center text-md-start">
-        <!-- Mobile: Explore -->
         <li class="nav-item d-md-none">
           <a class="nav-link" href="/listings">Explore</a>
         </li>
-
-        <!-- Mobile Search -->
-        <li class="nav-item d-md-none px-3">
-          <form class="search-form w-100" role="search">
-            <input class="form-control search-input mb-2" type="search" placeholder="Search destinations" />
-            <button class="btn search-btn w-100" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>Search
-            </button>
-          </form>
-        </li>
-
-        <!-- Auth Buttons -->
         <li class="nav-item d-md-none">
-          <a class="nav-link" href="/listings/new">HomyGo host</a>
-        </li>
-        <li class="nav-item d-none d-md-block">
           <a class="nav-link" href="/listings/new">HomyGo host</a>
         </li>
         <% if (!currUser) { %>
@@ -188,6 +205,14 @@
             <a class="nav-link" href="/logout"><b>Log out</b></a>
           </li>
         <% } %>
+        <li class="nav-item d-md-none px-3">
+          <form class="search-form w-100" role="search" method="GET" action="/listings">
+            <input class="form-control search-input mb-2" type="search" name="search" placeholder="Search destinations" value="<%= typeof search !== 'undefined' ? search : '' %>" />
+            <button class="btn search-btn w-100" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>Search
+            </button>
+          </form>
+        </li>
       </ul>
     </div>
   </div>
