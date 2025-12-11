@@ -139,4 +139,9 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
- 
+ // --- Keep Render Server Awake (Self-Ping Every 5 Minutes) ---
+setInterval(() => {
+  axios.get("https://wanderlust-ynlv.onrender.com")
+    .then(() => console.log("🔄 Self-ping successful"))
+    .catch(err => console.log("❌ Self-ping failed:", err.message));
+}, 10 * 60 * 1000); // Every 10 minutes
