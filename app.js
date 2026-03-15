@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const axios = require("axios");
 
 
 
@@ -51,7 +52,7 @@ const store = MongoStore.create({
     crypto: {
         secret : process.env.SECRET,
     },
-    toucAfter: 24 * 3600,
+    touchAfter: 24 * 3600,
 });
 
 store.on("error", () => {
@@ -105,6 +106,7 @@ app.get("/", (req, res) => {
 //         email: "student@gmail.com",
 //         username: "delta-student"
 //     });
+
 //    let registeredUser = await User.register(fakeUser, "helloworld");
 //    res.send(registeredUser);
 // });
