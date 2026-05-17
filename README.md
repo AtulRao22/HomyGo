@@ -9,7 +9,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Cloudinary](https://img.shields.io/badge/Cloudinary-Image_CDN-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
 [![Mapbox](https://img.shields.io/badge/Mapbox-Maps_API-000000?style=for-the-badge&logo=mapbox&logoColor=white)](https://www.mapbox.com/)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue?style=for-the-badge)](https://opensource.org/licenses/ISC)
+
 
 **HomyGo** is a full-stack Airbnb-inspired property listing platform where users can explore, list, and review unique stays across India and beyond — from cozy Himalayan cabins to beachfront boho shacks.
 
